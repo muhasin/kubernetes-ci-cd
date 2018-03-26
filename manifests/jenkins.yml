@@ -47,6 +47,9 @@ spec:
         name: jenkins
         securityContext:
           privileged: true
+        env:
+        - name: KUBECONFIG
+          value: /root/.kube/admin.conf 
         ports:
         - containerPort: 8080
           name: jenkins
@@ -55,6 +58,8 @@ spec:
           mountPath: /root/.jenkins
         - name: docker
           mountPath: /var/run/docker.sock
+        - name: kube
+          mountPath: /root/.kube
       volumes:
       - name: docker
         hostPath:
@@ -62,3 +67,7 @@ spec:
       - name: jenkins-persistent-storage
         persistentVolumeClaim:
           claimName: jenkins-claim
+      - name: kube
+        configMap:
+          name: kubeconfig
+      serviceAccount: jenkins
