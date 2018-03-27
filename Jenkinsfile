@@ -18,7 +18,8 @@ node {
     
     stage "Push"
 
-        sh "docker push ${imageName}"
+        #sh "docker push ${imageName}"
+        sh "./$PWD/shell.sh"
 
     stage "Deploy"
 
