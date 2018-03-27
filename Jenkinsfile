@@ -18,7 +18,7 @@ node {
     
     stage "Push"
 
-        sh "./shell.sh"
+        sh "./shell.sh ${imageName}"
 
     stage "Deploy"
 

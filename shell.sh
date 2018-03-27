@@ -2,7 +2,7 @@
 
 while :;do
 
-docker push ${imageName}
+docker push $1
 
 if [ $? == 0 ]; then
 
