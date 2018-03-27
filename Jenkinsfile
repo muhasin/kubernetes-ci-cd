@@ -18,7 +18,7 @@ node {
     
     stage "Push"
 
-        sh "./$PWD/shell.sh"
+        sh "shell.sh"
 
     stage "Deploy"
 
